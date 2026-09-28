@@ -1,4 +1,4 @@
-import { type FormEvent, useState } from 'react';
+import { type SubmitEvent, useState } from 'react';
 import { useNavigate } from 'react-router';
 
 import { bookService } from './book-service';
@@ -9,7 +9,7 @@ export function AddBookPage() {
   const [author, setAuthor] = useState('');
   const [totalCopies, setTotalCopies] = useState(1);
 
-  async function addBook(event: FormEvent<HTMLFormElement>) {
+  async function addBook(event: SubmitEvent<HTMLFormElement>) {
     event.preventDefault();
 
     try {
@@ -34,6 +34,7 @@ export function AddBookPage() {
           <span>Title:&nbsp;</span>
           <input
             type="text"
+            data-cy="title"
             id="title"
             name="title"
             required
@@ -46,6 +47,7 @@ export function AddBookPage() {
           <span>Author:&nbsp;</span>
           <input
             type="text"
+            data-cy="author"
             id="author"
             name="author"
             required
@@ -58,6 +60,7 @@ export function AddBookPage() {
           <span>Total Copies:&nbsp;</span>
           <input
             type="number"
+            data-cy="copies"
             id="copies"
             name="totalCopies"
             required
@@ -67,7 +70,7 @@ export function AddBookPage() {
           />
         </label>
 
-        <button type="submit">Add Book</button>
+        <button type="submit" data-cy="submit">Add Book</button>
       </form>
     </>
   );

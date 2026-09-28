@@ -71,18 +71,18 @@ export function BookListPage() {
               <tr className="book-item" key={book.id ?? `${book.title}-${book.author}`}>
                 <td>{book.title}</td>
                 <td>{book.author}</td>
-                <td>{book.available_copies}</td>
+                <td data-cy="available-copies" >{book.available_copies}</td>
                 <td>{book.total_copies}</td>
                 <td>
                   {book.id !== undefined && (
                     <>
-                      <button type="button" onClick={() => void borrowBook(book.id!)}>
+                      <button type="button" data-cy="borrow-btn" onClick={() => void borrowBook(book.id!)}>
                         Borrow
                       </button>
                       <button type="button" onClick={() => void returnBook(book.id!)}>
                         Return
                       </button>
-                      <button type="button" onClick={() => void deleteBook(book.id!)}>
+                      <button type="button" data-cy="delete-btn" onClick={() => void deleteBook(book.id!)}>
                         Delete
                       </button>
                     </>
